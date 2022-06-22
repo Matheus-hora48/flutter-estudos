@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ola_mundo/app_controller.dart';
 import 'home_page.dart';
 
 class AppWidget extends StatelessWidget {
@@ -7,8 +8,17 @@ class AppWidget extends StatelessWidget {
   const AppWidget({super.key, required this.title});
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
-        theme: ThemeData(primarySwatch: Colors.red),
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: AppController.instance,
+      builder: (context, child) => MaterialApp(
+        theme: ThemeData(
+            primarySwatch: Colors.red,
+            brightness: AppController.instance.isDartTheme
+                ? Brightness.dark
+                : Brightness.light),
         home: HomePage(),
-      );
+      ),
+    );
+  }
 }

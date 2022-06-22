@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'app_controller.dart';
+
 class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -16,6 +18,19 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("Contador"),
         centerTitle: true,
+        actions: [
+          CustomSwitch(),
+        ],
+      ),
+      body: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Contador: $counter"),
+            CustomSwitch(),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
@@ -25,11 +40,20 @@ class HomePageState extends State<HomePage> {
           });
         },
       ),
-      body: Center(
-          child: GestureDetector(
-        child: Text('Contador: $counter', style: TextStyle(fontSize: 20)),
-        onTap: () {},
-      )),
+    );
+  }
+}
+
+class CustomSwitch extends StatelessWidget {
+  const CustomSwitch({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Switch(
+      value: AppController.instance.isDartTheme,
+      onChanged: (value) {
+        AppController.instance.changeTheme();
+      },
     );
   }
 }
