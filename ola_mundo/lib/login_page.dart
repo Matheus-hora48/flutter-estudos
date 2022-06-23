@@ -1,6 +1,7 @@
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:ola_mundo/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -51,14 +52,14 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 15,
               ),
-              RaisedButton(
-                onPressed: () {
-                  if (email == 'matheus@teste.com' && passoword == '123456') {
-                    print('Correto');
-                  }
-                },
-                child: Text('Entrar'),
-              )
+              RaisedButton(onPressed: () {
+                if (email == 'matheus@teste.com' && passoword == '123456') {
+                  Navigator.of(context).pushNamed('/home');
+                }
+                ;
+                child:
+                Text('Entrar');
+              }),
             ],
           ),
         ),
