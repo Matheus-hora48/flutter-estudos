@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: () {
                         if (email == 'matheus@teste.com' &&
                             passoword == '123456') {
-                          Navigator.of(context).pushNamed('/home');
+                          Navigator.of(context).pushReplacementNamed('/home');
                         }
                       },
                       child: Text('Entrar'),
