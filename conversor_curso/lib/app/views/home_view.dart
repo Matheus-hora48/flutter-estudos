@@ -28,37 +28,46 @@ class HomeView extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width,
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
-                        flex: 1,
-                        child: DropdownButton<String>(
-      value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
-      elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
-      underline: Container(
-        height: 2,
-        color: Colors.deepPurpleAccent,
-      ),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownValue = newValue!;
-        });
-      },
-      items: <String>['One', 'Two', 'Free', 'Four']
-          .map<DropdownMenuItem<String>>((String value) {
-        return DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        );),
+                        child: SizedBox(
+                            height: 56,
+                            child: DropdownButton(
+                                isExpanded: true,
+                                underline: Container(
+                                  height: 1,
+                                  color: Colors.amber,
+                                ),
+                                items: [
+                                  DropdownMenuItem(
+                                      value: 1,
+                                      child: Text(
+                                        'Real',
+                                        overflow: TextOverflow.ellipsis,
+                                      )),
+                                  DropdownMenuItem(
+                                      value: 1,
+                                      child: Text(
+                                        'Dolar',
+                                        overflow: TextOverflow.ellipsis,
+                                      )),
+                                ],
+                                onChanged: null))),
                     SizedBox(
                       width: 10,
                     ),
                     Expanded(
                       flex: 2,
                       child: TextField(
-                        decoration: InputDecoration(),
+                        decoration: InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.amber),
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.amber),
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -68,6 +77,7 @@ class HomeView extends StatelessWidget {
                 height: 50,
               ),
               RaisedButton(
+                color: Colors.amber,
                 onPressed: () {},
                 child: Text('CONVERTER'),
               ),
