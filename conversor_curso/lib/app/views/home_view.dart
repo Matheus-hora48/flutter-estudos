@@ -37,19 +37,19 @@ class HomeView extends StatelessWidget {
                                 isExpanded: true,
                                 underline: Container(
                                   height: 1,
-                                  color: Colors.amber,
+                                  color: Color.fromARGB(255, 10, 9, 5),
                                 ),
                                 items: [
                                   DropdownMenuItem(
-                                      value: 1,
+                                      value: 0,
                                       child: Text(
                                         'Real',
                                         overflow: TextOverflow.ellipsis,
                                       )),
                                   DropdownMenuItem(
-                                      value: 1,
+                                      value: value,
                                       child: Text(
-                                        'Dolar',
+                                        'Real',
                                         overflow: TextOverflow.ellipsis,
                                       )),
                                 ],
