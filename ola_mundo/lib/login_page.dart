@@ -14,10 +14,8 @@ class _LoginPageState extends State<LoginPage> {
   String email = '';
   String passoword = '';
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: SingleChildScrollView(
+  Widget _body() {
+    return SingleChildScrollView(
       child: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -27,10 +25,10 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 100,
-                height: 100,
-                child: Image.asset('assets/image/logo.png'),
-              ),
+                  width: 300,
+                  height: 300,
+                  child: Image.network(
+                      'https://i.pinimg.com/originals/52/b9/9a/52b99aa1bebdd32a5f826426fd356b81.png')),
               Container(
                 height: 10,
               ),
@@ -72,6 +70,19 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
       ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Stack(
+      children: [
+        Container(
+          color: Colors.red,
+        ),
+        _body()
+      ],
     ));
   }
 }
