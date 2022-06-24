@@ -32,40 +32,50 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 height: 10,
               ),
-              TextField(
-                onChanged: (text) {
-                  email = text;
-                },
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  label: Text('Email'),
-                  border: OutlineInputBorder(),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(children: [
+                    TextField(
+                      onChanged: (text) {
+                        email = text;
+                      },
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        label: Text('Email'),
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    TextField(
+                      onChanged: (text) {
+                        passoword = text;
+                      },
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        label: Text('Passoword'),
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    RaisedButton(
+                      textColor: Colors.white,
+                      color: Colors.red,
+                      onPressed: () {
+                        if (email == 'matheus@teste.com' &&
+                            passoword == '123456') {
+                          Navigator.of(context).pushNamed('/home');
+                        }
+                      },
+                      child: Text('Entrar'),
+                    ),
+                  ]),
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              TextField(
-                onChanged: (text) {
-                  passoword = text;
-                },
-                obscureText: true,
-                decoration: InputDecoration(
-                  label: Text('Passoword'),
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              RaisedButton(onPressed: () {
-                if (email == 'matheus@teste.com' && passoword == '123456') {
-                  Navigator.of(context).pushNamed('/home');
-                }
-                ;
-                child:
-                Text('Entrar');
-              }),
             ],
           ),
         ),
