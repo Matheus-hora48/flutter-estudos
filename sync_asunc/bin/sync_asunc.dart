@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 void main() async {
   final todo = await fetch();
-  print(todo);
+  print(todo.userId);
 }
 
 Future<Todo> fetch() async {
@@ -16,18 +16,28 @@ Future<Todo> fetch() async {
 }
 
 class Todo {
-  final String title;
-  final int id;
-  final int userId;
-  final bool completed;
+  final String? title;
+  final int? id;
+  final int? userId;
+  final bool? completed;
 
-  Todo(this.title, this.id, this.userId, this.completed);
+  Todo({this.title, this.id, this.userId, this.completed});
 
-  factory Todo.fromJson(Map){
+  factory Todo.fromJson(Map json) {
     return Todo(
       id: json['id'],
-      completed: json['completed'];
-      userId: json['userid'],
-      );
+      title: json['title'],
+      completed: json['completed'],
+      userId: json['userId'],
+    );
+  }
+
+  Map toJson() {
+    return {
+      'id': id,
+      'title': title,
+      'completed': completed,
+      'userId': userId,
+    };
   }
 }
