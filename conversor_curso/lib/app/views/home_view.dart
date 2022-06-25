@@ -2,6 +2,8 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 
+import '../components/currenty_box.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -17,7 +19,7 @@ class HomeView extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         child: Padding(
           padding:
-              const EdgeInsets.only(left: 20, right: 20, top: 100, bottom: 20),
+              const EdgeInsets.only(left: 30, right: 30, top: 100, bottom: 20),
           child: Column(
             children: [
               Image.network(
@@ -26,53 +28,13 @@ class HomeView extends StatelessWidget {
                 height: 200,
               ),
               SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                        child: SizedBox(
-                            height: 56,
-                            child: DropdownButton(
-                                isExpanded: true,
-                                underline: Container(
-                                  height: 1,
-                                  color: Color.fromARGB(255, 10, 9, 5),
-                                ),
-                                items: [
-                                  DropdownMenuItem(
-                                      value: 0,
-                                      child: Text(
-                                        'Real',
-                                        overflow: TextOverflow.ellipsis,
-                                      )),
-                                  DropdownMenuItem(
-                                      value: value,
-                                      child: Text(
-                                        'Real',
-                                        overflow: TextOverflow.ellipsis,
-                                      )),
-                                ],
-                                onChanged: null))),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.amber),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.amber),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                height: 30,
               ),
+              CurrencyBox(),
+              SizedBox(
+                height: 10,
+              ),
+              CurrencyBox(),
               SizedBox(
                 height: 50,
               ),
