@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -9,15 +9,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: HomeWidget(),
     );
   }
 }
 
-class HomeWidget extends StatelessWidget{
-   @override
+class HomeWidget extends StatelessWidget {
+  const HomeWidget({Key? key}) : super(key: key);
+
+  @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Teste'));
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Home"),
+        ),
+        body: Center(
+          child: Text('Teste'),
+        ));
+    floatingActionButton:
+    FloatingActionButton(
+      onPressed: () {},
+    );
   }
 }
